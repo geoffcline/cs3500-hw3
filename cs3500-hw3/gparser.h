@@ -29,6 +29,16 @@ class gparser
   bool Dec();
   bool Str();
   bool Ident();
+
+  bool StatementSequence();
+  bool Statement();
+
+  bool Assignment();
+  bool IncStatement();
+  bool IfStatement();
+  bool LoopStatement();
+  bool PrintStatement();
+
   char getTopChar();
 
 public:
