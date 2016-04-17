@@ -30,14 +30,17 @@ class gparser
   bool Str();
   bool Ident();
 
-  bool StatementSequence();
-  bool Statement();
+  bool StatementSequence(); //HALP
+  bool Statement(); //HALP
 
   bool Assignment();
   bool IncStatement();
   bool IfStatement();
   bool LoopStatement();
   bool PrintStatement();
+
+  bool ParamSequence();
+  bool RoutineDeclaration();
 
   char getTopChar();
 
