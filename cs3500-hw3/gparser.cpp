@@ -346,7 +346,8 @@ bool gparser::StatementSequence()
   {
 	res = res && Statement();
 
-	if (top() == "ret" || top() == "blorp" || top() == "else" || top() == "fi" || top() == "elihw" || top() == "!")
+	if (top() == "ret" || top() == "blorp" || top() == "else" || 
+	    top() == "fi" || top() == "elihw")
 	  statementloop = false;
 
   } while (statementloop && res);

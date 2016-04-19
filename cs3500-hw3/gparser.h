@@ -31,8 +31,8 @@ class gparser
   bool Str();
   bool Ident();
 
-  bool StatementSequence(); //HALP
-  bool Statement(); //HALP
+  bool StatementSequence();
+  bool Statement();
 
   bool Assignment();
   bool IncStatement();
