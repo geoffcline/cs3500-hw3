@@ -9,10 +9,14 @@ using namespace std;
 int main()
 {
   gparser gp;
-  int x;
+  string x;
 
-  cout << (gp.parse() ? "true" : "false") << endl;
-  cin >> x;
+  do
+  {
+	cout << (gp.parse() ? "true" : "false") << endl;
+	cout << "PARSE AGAIN? y/n" << endl;
+	cin >> x;
+  } while (x != "n");
     
   return 0;
 }

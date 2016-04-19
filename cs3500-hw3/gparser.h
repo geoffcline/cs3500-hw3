@@ -5,6 +5,7 @@
 #include <string>
 #include <iostream>
 #include <regex>
+#include <fstream>
 
 using namespace std;
 
@@ -42,8 +43,10 @@ class gparser
   bool ParamSequence();
   bool RoutineDeclaration();
 
-  string top() { return tokens.front(); }
-  string pop() { tokens.pop(); }
+  bool empty() {return tokens.empty();}
+
+  string top() { return (tokens.empty() ? "\0" : tokens.front()); }
+  void pop();
 
   void parseLit(const string txt, bool& val);
   void parseIdent(bool &val);
