@@ -1,7 +1,7 @@
 #pragma once
 
 #include "stdafx.h"
-#include <stack>
+#include <queue>
 #include <string>
 #include <iostream>
 #include <regex>
@@ -10,7 +10,7 @@ using namespace std;
 
 class gparser
 {
-  stack<string> tokens;
+  queue<string> tokens;
   bool Exp();
   bool SimpExp();
   bool isRel();
@@ -42,7 +42,11 @@ class gparser
   bool ParamSequence();
   bool RoutineDeclaration();
 
-  char getTopChar();
+  string top() { return tokens.front(); }
+  string pop() { tokens.pop(); }
+
+  void parseLit(const string txt, bool& val);
+  void parseIdent(bool &val);
 
 public:
   gparser();
