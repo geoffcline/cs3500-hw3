@@ -11,12 +11,13 @@ int main()
   gparser gp;
   string x;
 
-  do
-  {
-	cout << (gp.parse() ? "true" : "false") << endl;
-	cout << "PARSE AGAIN? y/n" << endl;
-	cin >> x;
-  } while (x != "n");
+  cout << (gp.parse("gparse3.txt") ? "CORRECT" : "INVALID!") << endl;
+  cout << (gp.parse("gparse4.txt") ? "CORRECT" : "INVALID!") << endl;
+  cout << (gp.parse("gparse5.txt") ? "CORRECT" : "INVALID!") << endl;
+  cout << (gp.parse("gparse6.txt") ? "CORRECT" : "INVALID!") << endl;
+  cout << (gp.parse("gparse7.txt") ? "CORRECT" : "INVALID!") << endl;
+
+  cin >> x;
     
   return 0;
 }

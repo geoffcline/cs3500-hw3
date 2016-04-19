@@ -40,6 +40,8 @@ class gparser
   bool LoopStatement();
   bool PrintStatement();
 
+  
+
   bool ParamSequence();
   bool RoutineDeclaration();
 
@@ -55,5 +57,6 @@ public:
   gparser();
   ~gparser();
   bool parse();
+  bool parse(const string& file);
 };
 

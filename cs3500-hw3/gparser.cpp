@@ -11,22 +11,26 @@ gparser::~gparser()
 {
 }
 
-bool gparser::parse()
+bool gparser::parse(const string& file)
 {
-
-
   string tmp;
-  //ifstream fin;
-  //fin.open("gparse.txt");
+  ifstream fin;
+  fin.open(file);
 
-  while (cin >> tmp && tmp != "EXIT")
+  while (fin >> tmp && tmp != "EXIT")
   {
 	tokens.push(tmp);
-	cout << "ECHO: \"" << tmp << "\"" << endl;
+	//cout << "ECHO: \"" << tmp << "\"" << endl;
   }
 
+  fin.close();
 
-  return Exp();
+  return RoutineDeclaration();
+}
+
+bool gparser::parse()
+{
+  return parse("gparse2.txt");
 }
 
 bool gparser::Exp()
@@ -342,7 +346,7 @@ bool gparser::StatementSequence()
   {
 	res = res && Statement();
 
-	if (top() == "ret" || top() == "blorp")
+	if (top() == "ret" || top() == "blorp" || top() == "else" || top() == "fi" || top() == "elihw" || top() == "!")
 	  statementloop = false;
 
   } while (statementloop && res);

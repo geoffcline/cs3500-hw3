@@ -1,0 +1,10 @@
+defprog foo < a , b >
+blip
+  while < ~ ( a eq b ) >
+    if < a gt b > 
+      a <= a - b !
+    else
+      b <= b - a !
+    fi
+  elihw
+ret a blorp
