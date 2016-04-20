@@ -11,26 +11,22 @@ gparser::~gparser()
 {
 }
 
-bool gparser::parse(const string& file)
-{
-  string tmp;
-  ifstream fin;
-  fin.open(file);
-
-  while (fin >> tmp && tmp != "EXIT")
-  {
-	tokens.push(tmp);
-	//cout << "ECHO: \"" << tmp << "\"" << endl;
-  }
-
-  fin.close();
-
-  return RoutineDeclaration();
-}
-
 bool gparser::parse()
 {
-  return parse("gparse2.txt");
+  string tmp;
+  bool test;
+
+  while (cin >> tmp)
+  {
+	tokens.push(tmp);
+  }
+
+  test = RoutineDeclaration();
+
+  while(!tokens.empty())
+  	tokens.pop();
+
+  return test;
 }
 
 bool gparser::Exp()
