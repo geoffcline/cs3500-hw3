@@ -7,7 +7,7 @@ string type_line(const string s)
   const int SSCIF = 2;
   const int SHEXF = 3;
   const int SBINF = 4;
-  const int SKEYF = 5;
+  //const int SKEYF = 5;
   const int SSTRF = 6;
 
   const int SSRT  = 10;
