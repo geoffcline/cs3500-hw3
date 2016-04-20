@@ -40,7 +40,7 @@ bool gparser::parse(const string file)
 
   ifstream fin;
 
-  fin.open(file);
+  fin.open(file.c_str());
 
   while (fin >> tmp)
   {
@@ -298,7 +298,7 @@ bool gparser::isStr()
   bool test = true;
   string ev = top();
 
-  int i = 0;
+  unsigned int i = 0;
 
   if (ev[0] != '\"')
 	test = false;
