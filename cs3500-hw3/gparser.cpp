@@ -27,10 +27,8 @@ bool gparser::parse()
 
   test = RoutineDeclaration();
 
-  while (!tokens.empty())
-  {
-	tokens.pop();
-  }
+  while(!tokens.empty())
+  	tokens.pop();
 
   return test;
 }
