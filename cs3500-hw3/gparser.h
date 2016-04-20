@@ -62,5 +62,6 @@ public:
   gparser();
   ~gparser();
   bool parse();
+  bool parse(const string file);
 };
 

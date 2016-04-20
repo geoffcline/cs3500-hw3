@@ -20,9 +20,27 @@ bool gparser::parse()
   string tmp;
   bool test;
 
+  while (cin >> tmp)
+  {
+	tokens.push(tmp);
+  }
+
+  test = RoutineDeclaration();
+
+  while (!tokens.empty())
+	tokens.pop();
+
+  return test;
+}
+
+bool gparser::parse(const string file)
+{
+  string tmp;
+  bool test;
+
   ifstream fin;
 
-  fin.open("gparse6.txt");
+  fin.open(file);
 
   while (fin >> tmp)
   {
