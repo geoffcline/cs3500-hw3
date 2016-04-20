@@ -26,10 +26,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cs3500-hw3.cpp">
+    <ClCompile Include="gparser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gparser.cpp">
+    <ClCompile Include="progparser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

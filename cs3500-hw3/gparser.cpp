@@ -15,35 +15,24 @@ gparser::~gparser()
 {
 }
 
-bool gparser::parse(const string& file)
+bool gparser::parse()
 {
   string tmp;
-  ifstream fin;
-  fin.open(file);
   bool test;
 
-  while (fin >> tmp && tmp != "EXIT")
+  while (cin >> tmp)
   {
 	tokens.push(tmp);
-	//cout << "ECHO: \"" << tmp << "\"" << endl;
   }
-
-  fin.close();
 
   test = RoutineDeclaration();
 
   while (!tokens.empty())
   {
-	cout << "R: " << top() << endl;
 	tokens.pop();
   }
 
   return test;
-}
-
-bool gparser::parse()
-{
-  return parse("gparse2.txt");
 }
 
 bool gparser::Exp()
@@ -217,7 +206,7 @@ bool gparser::isInt()
 {
   bool test = false;
 
-  if (regex_match(top(), regex("[+-]?[0-9]+")))
+  if (boost::regex_match(top(), boost::regex("[+-]?[0-9]+")))
 	test = true;
 
   return test;
@@ -240,7 +229,7 @@ bool gparser::isDec()
 {
   bool test = false;
 
-  if (regex_match(top(), regex("[+-]?[0-9]+\\.[0-9]+")))
+  if (boost::regex_match(top(), boost::regex("[+-]?[0-9]+\\.[0-9]+")))
 	test = true;
 
   return test;
@@ -263,7 +252,7 @@ bool gparser::isIdent()
 {
   bool test = false;
   
-  if (regex_match(top(), regex("[a-zA-Z][a-zA-Z0-9]*")))
+  if (boost::regex_match(top(), boost::regex("[a-zA-Z][a-zA-Z0-9]*")))
 	test = true;
 
   return test;
@@ -286,7 +275,7 @@ bool gparser::isStr()
 {
   bool test = false;
 
-  if (regex_match(top(), regex("\".*\"")))
+  if (boost::regex_match(top(), boost::regex("\".*\"")))
 	test = true;
 
   return test;
