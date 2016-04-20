@@ -24,12 +24,18 @@
     <ClInclude Include="gparser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="glexer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gparser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="progparser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="type_line.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

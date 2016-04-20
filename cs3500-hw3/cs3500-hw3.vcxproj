@@ -150,11 +150,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="glexer.h" />
     <ClInclude Include="gparser.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="progparser.cpp" />
     <ClCompile Include="gparser.cpp" />
+    <ClCompile Include="type_line.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -7,8 +7,8 @@
 #include <queue>
 #include <string>
 #include <iostream>
-#include <boost/regex.hpp>
 #include <fstream>
+#include "glexer.h"
 
 using namespace std;
 

@@ -189,9 +189,6 @@ string type_line(const string s)
 
   if (i == s.length() && st < LINE_TYPES_SZ && st != SBAD)
   {
-  if (st == SSTRF && ident_line(s))
-    rst = LINE_TYPES[SKEYF];
-  else
     rst = LINE_TYPES[st];
   }
   else

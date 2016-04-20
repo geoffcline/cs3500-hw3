@@ -20,10 +20,16 @@ bool gparser::parse()
   string tmp;
   bool test;
 
-  while (cin >> tmp)
+  ifstream fin;
+
+  fin.open("gparse6.txt");
+
+  while (fin >> tmp)
   {
 	tokens.push(tmp);
   }
+
+  fin.close();
 
   test = RoutineDeclaration();
 
@@ -204,7 +210,7 @@ bool gparser::isInt()
 {
   bool test = false;
 
-  if (boost::regex_match(top(), boost::regex("[+-]?[0-9]+")))
+  if (type_line(top()) == LINE_TYPES[0])
 	test = true;
 
   return test;
@@ -227,7 +233,7 @@ bool gparser::isDec()
 {
   bool test = false;
 
-  if (boost::regex_match(top(), boost::regex("[+-]?[0-9]+\\.[0-9]+")))
+  if (type_line(top()) == LINE_TYPES[1])
 	test = true;
 
   return test;
@@ -250,7 +256,7 @@ bool gparser::isIdent()
 {
   bool test = false;
   
-  if (boost::regex_match(top(), boost::regex("[a-zA-Z][a-zA-Z0-9]*")))
+  if (type_line(top()) == LINE_TYPES[6])
 	test = true;
 
   return test;
@@ -271,10 +277,26 @@ bool gparser::Ident()
 
 bool gparser::isStr()
 {
-  bool test = false;
+  bool test = true;
+  string ev = top();
 
-  if (boost::regex_match(top(), boost::regex("\".*\"")))
-	test = true;
+  int i = 0;
+
+  if (ev[0] != '\"')
+	test = false;
+  else
+	i++;
+
+  while (i < top().length() && test)
+  {
+	if (i + 1 == top().length())
+	{
+	  if (ev[i] != '\"')
+		test = false;
+	}
+
+	i++;
+  }
 
   return test;
 }

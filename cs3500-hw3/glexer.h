@@ -15,6 +15,5 @@ const string KEYWORDS[]   = { "while", "else", "end", "print" };
 const int KEYWORDS_SZ = 4;
 
 string type_line(const string s);
-bool ident_line(const string s);
 
 #endif
