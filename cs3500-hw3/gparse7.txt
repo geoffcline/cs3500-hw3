@@ -1,4 +1,4 @@
-prog foo ( loop )
+defprog foo ( loop )
 blip blip !
   x is blorp !
   ret print !

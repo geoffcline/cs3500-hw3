@@ -1,3 +1,7 @@
+// Geoffrey Cline
+// CS3500 - HW 3
+// 4/19/2016
+
 #pragma once
 
 #include <queue>
@@ -47,7 +51,7 @@ class gparser
   bool empty() {return tokens.empty();}
 
   string top() { return (tokens.empty() ? "\0" : tokens.front()); }
-  void pop();
+  void pop() { cout << "A: " << top() << endl;  if (!tokens.empty()) { tokens.pop(); } }
 
   void parseLit(const string txt, bool& val);
   void parseIdent(bool &val);
