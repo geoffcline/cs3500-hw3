@@ -1,5 +1,6 @@
-// cs3500-hw3.cpp : Defines the entry point for the console application.
-//
+// Geoffrey Cline
+// CS3500 - HW 3
+// 4/19/2016
 
 #include "gparser.h"
 

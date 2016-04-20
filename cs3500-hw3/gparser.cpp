@@ -1,3 +1,7 @@
+// Geoffrey Cline
+// CS3500 - HW 3
+// 4/19/2016
+
 #include "gparser.h"
 
 using namespace std;
@@ -32,7 +36,6 @@ bool gparser::parse()
 bool gparser::Exp()
 {
 
-
   bool test = true;
 
   test = test && SimpExp();
@@ -48,8 +51,6 @@ bool gparser::Exp()
 
 bool gparser::SimpExp()
 {
-
-
   bool test = true;
 
   test = test && Term();
@@ -59,22 +60,19 @@ bool gparser::SimpExp()
 	test = test && Term();
   }
 
-
   return test;
 }
 
 bool gparser::Term()
 {
-
   bool test = true;
 
   test = test && Factor();
-  while (isMultOp())
+  while (isMultOp() && test)
   {
 	test = test && MultOp();
 	test = test && Factor();
   }
-
 
   return test;
 }
@@ -115,16 +113,7 @@ bool gparser::isRel()
 {
   bool res = true;
 
-  if (top() == "lt")
-  {
-  }
-  else if (top() == "gt")
-  {
-  }
-  else if (top() == "eq")
-  {
-  }
-  else
+  if (top() != "lt" && top() != "gt" && top() != "eq")
 	res = false;
 
   return res;
@@ -135,19 +124,8 @@ bool gparser::isAddOp()
   bool res = true;
 
 
-  if (top() == "+")
-  {
-  }
-  else if (top() == "-")
-  {
-  }
-  else if (top() == "or")
-  {
-  }
-  else
-  {
+  if (top() != "+" && top() != "-" && top() != "or")
 	res = false;
-  }
 
 
   return res;
@@ -157,16 +135,7 @@ bool gparser::isMultOp()
 {
   bool res = true;
 
-  if (top() == "*")
-  {
-  }
-  else if (top() == "/")
-  {
-  }
-  else if (top() == "and")
-  {
-  }
-  else
+  if (top() != "*" && top() != "/" && top() != "and")
 	res = false;
 
   return res;
@@ -211,15 +180,6 @@ bool gparser::MultOp()
   return res;
 }
 
-void gparser::pop()
-{
-   
-  if (!tokens.empty())
-	tokens.pop();
-  else
-	cout << "pop empty?" << endl;
-}
-
 void gparser::parseLit(const string txt, bool & val)
 {
     if (top() == txt)
@@ -244,7 +204,7 @@ bool gparser::isInt()
 {
   bool test = false;
 
-  if (regex_match(top(), regex("[+-]?[0-9]+")))
+  if (boost::regex_match(top(), boost::regex("[+-]?[0-9]+")))
 	test = true;
 
   return test;
@@ -267,7 +227,7 @@ bool gparser::isDec()
 {
   bool test = false;
 
-  if (regex_match(top(), regex("[+-]?[0-9]+\\.[0-9]+")))
+  if (boost::regex_match(top(), boost::regex("[+-]?[0-9]+\\.[0-9]+")))
 	test = true;
 
   return test;
@@ -290,7 +250,7 @@ bool gparser::isIdent()
 {
   bool test = false;
   
-  if (regex_match(top(), regex("[a-zA-Z][a-zA-Z0-9]*")))
+  if (boost::regex_match(top(), boost::regex("[a-zA-Z][a-zA-Z0-9]*")))
 	test = true;
 
   return test;
@@ -313,7 +273,7 @@ bool gparser::isStr()
 {
   bool test = false;
 
-  if (regex_match(top(), regex("\".*\"")))
+  if (boost::regex_match(top(), boost::regex("\".*\"")))
 	test = true;
 
   return test;
@@ -354,8 +314,6 @@ bool gparser::StatementSequence()
 bool gparser::Statement()
 {
   bool test = false; 
-
-  //needs work
 
   if (top() == "inc")
 	test = IncStatement();
