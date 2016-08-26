@@ -3,8 +3,11 @@ blip
   while < ~ ( a eq b ) >
     if < a gt b > 
       a <= a - b !
+      a <= "what" + 4a !
     else
       b <= b - a !
     fi
+    print 1a !
+    inc 3a ! 
   elihw
 ret a blorp

@@ -1,3 +1,7 @@
+// Geoffrey Cline
+// CS3500 - HW 3
+// 4/19/2016
+
 #ifndef GLEXER_H
 #define GLEXER_H
 
